@@ -1,24 +1,18 @@
 import input from 'input'
 
-function isEven(num) {
-    if (num % 2 == 0) {
-        console.log(`${num} is even.`);
-    }
-    else {
-        console.log(`${num} is odd.`);
-    }
-
-}
-
 async function main() {
-    const maxStr = await input.text('Enter a number');
-    const max = Number(maxStr);
-    let i = 0;
+    const oneStr = await input.text('Enter a number');
+    const twoStr = await input.text('Enter another number');
+    const option = await input.select("Choose an option", ["max", "min"]);
+    const oneNum = Number(oneStr);
+    const twoNum = Number(twoStr);
 
-    while (i< max) {
-        isEven(i);
-        i += 1;
-    }
+if(option == 'max') {
+    console.log(Math.max(oneNum, twoNum))
+}
+else {
+    console.log(Math.min(oneNum, twoNum))
+}
 }
 
 main();
